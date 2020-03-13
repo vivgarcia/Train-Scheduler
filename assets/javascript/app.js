@@ -34,7 +34,8 @@
         name: trainName,
         destination: destination,
         time: time,
-        frequency: frequency
+        frequency: frequency,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
       })
     })
 
@@ -42,4 +43,8 @@
 
       // Log everything that's coming out of snapshot
       console.log(childSnapshot.val().name);
+      console.log(childSnapshot.val().destination);
+      console.log(childSnapshot.val().time);
+      console.log(childSnapshot.val().frequency);
+      console.log(childSnapshot.val().dateAdded);
     });
