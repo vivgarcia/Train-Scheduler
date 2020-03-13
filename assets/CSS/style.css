@@ -1,0 +1,13 @@
+
+.jumbotron{
+    background-color: navy;
+    text-align: center;
+    color: #fff;
+
+}
+.currentTrainSchedule{
+    margin: 80px;
+}
+th{
+    width: 5%;
+}
