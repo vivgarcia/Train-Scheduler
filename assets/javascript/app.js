@@ -1,5 +1,3 @@
-
-
   // Your web app's Firebase configuration
     var firebaseConfig = {
     apiKey: "AIzaSyBUJn1ZC8fjOha_GMIbjYOyfMaepE6k9h4",
@@ -12,3 +10,36 @@
     };
   // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+
+    var database = firebase.database();
+    var trainName = "";
+    var destination = "";
+    var time = "";
+    var frequency = "";
+
+    $("#submitButton").on("click", function(event){
+      event.preventDefault();
+
+      trainName = $("#newTrainName").val().trim();
+      destination = $("#newDestination").val().trim();
+      time = $("#newFirstTrainTime").val().trim();
+      frequency = $("#newTrainFrequency").val().trim();
+      
+      // console.log(trainName);
+      // console.log(destination);
+      // console.log(time);
+      // console.log(frequency);
+
+      database.ref().push({
+        name: trainName,
+        destination: destination,
+        time: time,
+        frequency: frequency
+      })
+    })
+
+    database.ref().on("child_added", function(childSnapshot) {
+
+      // Log everything that's coming out of snapshot
+      console.log(childSnapshot.val().name);
+    });
