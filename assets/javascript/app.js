@@ -60,30 +60,24 @@
       var dateAdded = childSnapshot.val().dateAdded;
 
       var firstTimeConverted = moment(firstTrainTime, "hh:mm").subtract(1, "years");
-      console.log(firstTimeConverted);
 
       //determine Current Time
       var currentTime = moment();
-      console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm a"));
 
       //get timer functioning and display to timer span
       $("#timer").text(currentTime.format("hh:mm a"));
 
       // Difference between the times
       var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-      console.log("DIFFERENCE IN TIME: " + diffTime);
 
       // Time apart (remainder)
       var tRemainder = diffTime % frequency;
-      console.log("Remainder: " + tRemainder);
 
       //determine Minutes Away
       var minutesAway = frequency - tRemainder;
-      console.log("MINUTES TILL TRAIN: " + minutesAway);
 
       //determine Next Train Arrival
       var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm a");
-      console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm a"));
 
       $("#trainData").append("<tr><td>" + train + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>")
     });
