@@ -15,6 +15,7 @@
 <body>
     <div class="jumbotron jumbotron-fluid">
         <h1>North American Bullet Train Schedule</h1>
+        <h5>Current time: <span id="timer"></span></h5>
     </div>
     <div class="card currentTrainSchedule">
         <div class="card-header">Current Train Schedule</div>
@@ -29,12 +30,8 @@
                         <th>Minutes Away</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Bluebonnet Express</td>
-                        <td>Dallas</td>
-                        <td>45</td>
-                    </tr>
+                <tbody id="trainData">
+                    
                 </tbody>
             </table>
         </div>
